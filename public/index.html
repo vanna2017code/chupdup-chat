@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Live Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">Live Chat</div>
+    <div class="controls">
+      <input id="roomId" placeholder="Room ID" />
+      <button id="joinBtn" disabled>Join</button>
+      <button id="startCallBtn" disabled>Start call</button>
+      <button id="shareScreenBtn" disabled>Share screen</button>
+      <button id="toggleMicBtn" disabled>Mute</button>
+      <button id="toggleCamBtn" disabled>Stop video</button>
+      <a href="https://sponsors.github.com/vanna2017code" target="_blank" class="donate-btn">Donate</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="left">
+      <div class="panel">
+        <h3>Login / Signup</h3>
+        <div class="auth-row">
+          <input id="email" placeholder="Email" />
+          <input id="name" placeholder="Name" />
+          <input id="password" type="password" placeholder="Password" />
+          <button id="signupBtn">Signup</button>
+          <button id="loginBtn">Login</button>
+        </div>
+        <div id="authStatus"></div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+      <form id="chatForm" class="chat-form">
+        <input id="msgInput" placeholder="Type a message..." />
+        <button type="submit">Send</button>
+        <label class="file-label">
+          <input id="fileInput" type="file" hidden />
+          Share file
+        </label>
+      </form>
+
+      <div class="panel">
+        <h3>Polls</h3>
+        <div class="poll-create">
+          <input id="pollQuestion" placeholder="Question" />
+          <input class="pollOpt" placeholder="Option 1" />
+          <input class="pollOpt" placeholder="Option 2" />
+          <button id="addPollOptBtn" type="button">Add option</button>
+          <button id="createPollBtn" type="button">Create poll</button>
+        </div>
+        <div id="polls"></div>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="panel">
+        <h3>Invitations</h3>
+        <input id="roomName" placeholder="Room name" />
+        <button id="createRoomBtn" disabled>Create room</button>
+        <input id="inviteEmails" placeholder="Invite emails (comma separated)" />
+        <button id="sendInvitesBtn" disabled>Send invites</button>
+        <div id="inviteStatus"></div>
+      </div>
+
+      <div class="video-grid" id="videoGrid"></div>
+
+      <div class="panel">
+        <h3>Charts</h3>
+        <canvas id="pollChart" height="160"></canvas>
+        <canvas id="activityChart" height="160"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Use local chart.min.js or CDN: <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+  <script src="chart.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

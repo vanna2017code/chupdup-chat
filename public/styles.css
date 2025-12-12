@@ -1,0 +1,63 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --accent: #3b82f6;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 16px; background: #1f2937; position: sticky; top: 0; z-index: 10;
+}
+.brand { font-weight: 700; }
+.controls > * { margin-left: 8px; }
+.controls input {
+  padding: 6px 8px; border-radius: 6px; border: 1px solid #374151;
+  background: #0b1220; color: var(--text);
+}
+.controls button {
+  padding: 6px 10px; border: none; border-radius: 6px;
+  background: var(--accent); color: white; cursor: pointer;
+}
+.controls button:disabled { background: #374151; cursor: not-allowed; }
+
+/* Donate button */
+.donate-btn {
+  padding: 6px 12px; border-radius: 6px; background: #ef4444;
+  color: white; text-decoration: none; font-weight: 600; margin-left: 8px;
+  transition: background 0.2s ease;
+}
+.donate-btn:hover { background: #dc2626; }
+
+.container { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; }
+.left, .right { background: var(--panel); border-radius: 8px; padding: 12px; min-height: 70vh; }
+
+.messages { height: calc(70vh - 80px); overflow-y: auto; padding: 8px; background: #0b1220; border-radius: 8px; }
+.message { margin-bottom: 10px; }
+.message .meta { font-size: 12px; color: #94a3b8; }
+.message .bubble { background: #1f2937; display: inline-block; padding: 8px 10px; border-radius: 8px; }
+
+.chat-form { display: flex; gap: 8px; margin-top: 10px; }
+.chat-form input { flex: 1; padding: 8px; border-radius: 6px; border: 1px solid #374151; background: #0b1220; color: var(--text); }
+.chat-form button { padding: 8px 12px; background: var(--accent); color: white; border: none; border-radius: 6px; }
+.file-label { padding: 8px 12px; background: #374151; color: white; border-radius: 6px; cursor: pointer; }
+
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.video-tile { position: relative; background: #0b1220; border-radius: 8px; overflow: hidden; }
+video { width: 100%; height: 160px; background: black; }
+.video-name { position: absolute; bottom: 6px; left: 8px; font-size: 12px; background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 6px; }
+
+/* Panels and polls */
+.panel { background: #0b1220; border-radius: 8px; padding: 10px; margin-bottom: 12px; }
+.auth-row, .poll-create { display: flex; gap: 8px; flex-wrap: wrap; }
+#authStatus, #inviteStatus { font-size: 12px; color: #94a3b8; margin-top: 6px; }
+.poll { border: 1px solid #374151; border-radius: 8px; padding: 8px; margin-top: 8px; }
+.poll h4 { margin: 0 0 6px; }
+.poll .options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.poll button { padding: 6px 10px; border-radius: 6px; border: none; background: #374151; color: white; cursor: pointer; }
